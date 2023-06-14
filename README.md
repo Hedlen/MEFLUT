@@ -1,2 +1,2 @@
-# HDRLUT
-This is the official Pytorch implementation of HDRLUT.
+# MEFLUT
+This is the official Pytorch implementation of MEFLUT.
