@@ -57,13 +57,6 @@ This code is developed under
 
 We strongly recommend you using anaconda to ensure you can get the same results as us. 
 
-## Usage
-### Testing
-```
-1. cd codes
-2. python main.py # execute in GPU
-```
-
 Install the require dependencies:
 
 ```bash
@@ -72,6 +65,12 @@ conda activate meflut
 pip install -r requirements.txt
 ```
 
+## Usage
+### Testing
+```
+1. cd codes
+2. python main.py # execute in GPU
+```
 ## Citation
 
 If you find this work helpful, please cite our paper:
