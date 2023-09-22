@@ -1,6 +1,6 @@
 # [ICCV 2023] MEFLUT: Unsupervised 1D Lookup Tables for Multi-exposure Image Fusion [Paper](https://arxiv.org/abs/2309.11847)
 
-<h4 align="center">Ting Jiang<sup>1,*</sup>, Chuan Wang<sup>1</sup>,,  Xinpeng Li<sup>1</sup>,  Ru Li<sup>1</sup>,  Haoqiang Fan<sup>1/sup>,  Shuaicheng Liu<sup>2,1,†</sup></center>
+<h4 align="center">Ting Jiang<sup>1,*</sup>, Chuan Wang<sup>1</sup>,  Xinpeng Li<sup>1</sup>,  Ru Li<sup>1</sup>,  Haoqiang Fan<sup>1</sup>,  Shuaicheng Liu<sup>2,1,†</sup></center>
 <h4 align="center"> 1. Megvii Research, 2. University of Electronic Science and Technology of China</center>
 <h6 align="center"> †Corresponding author</center>
 
@@ -43,10 +43,9 @@ Test set
 |  |--...
 |--test.txt //  Test set index.
 ```
-
 The indices of the selected 2, 3, and 4 frames in the paper will be updated in the future.
-## Usage
 
+## Usage
 ### Requirements
 
 This code is developed under 
@@ -73,7 +72,7 @@ conda activate meflut
 pip install -r requirements.txt
 ```
 
-<!-- ## Citation
+## Citation
 
 If you find this work helpful, please cite our paper:
 
