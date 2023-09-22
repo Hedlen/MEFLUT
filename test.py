@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 from torch.optim import lr_scheduler
 from torch.autograd import Variable
 from torchvision import transforms, utils
-from models.model import MEFLUT Fusion, init_parameters
+from models.model import MEFLUT, Fusion, init_parameters
 from losses.mefssim import MEF_MSSSIM
 from datasets.ImageDataset import ImageSeqDataset
 from datasets.batch_transformers import BatchRandomResolution, BatchToTensor, BatchRGBToYCbCr, YCbCrToRGB, BatchTestResolution
