@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 from torch.optim import lr_scheduler
 from torch.autograd import Variable
 from torchvision import transforms, utils
-from models.model import MEFLUT, Fusion, init_parameters
+from models.model import MEFNetwork, Fusion, init_parameters
 from losses.mefssim import MEF_MSSSIM
 from datasets.ImageDataset import ImageSeqDataset
 from datasets.batch_transformers import BatchRandomResolution, BatchToTensor, BatchRGBToYCbCr, YCbCrToRGB, BatchTestResolution
@@ -52,7 +52,7 @@ class Test(object):
         self.layers = config.layers
         self.width = config.width
 
-        self.model = MEFLUT(is_guided=True, n_frames=config.n_frames, radius=self.radius, eps=self.eps, layers=self.layers, width=self.width)
+        self.model = MEFNetwork(is_guided=True, n_frames=config.n_frames, radius=self.radius, eps=self.eps, layers=self.layers, width=self.width)
         init_parameters(self.model)
         self.model_name = type(self.model).__name__
 

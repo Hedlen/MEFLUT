@@ -131,9 +131,9 @@ class DISA(nn.Module):
         x = self.tail(x)
         return x
 
-class MEFLUT(nn.Module):
+class MEFNetwork(nn.Module):
     def __init__(self, n_frames=3, radius=2, eps=1, is_guided=True, reduction=8, layers=2, width=48):
-        super(MEFLUT, self).__init__()
+        super(MEFNetwork, self).__init__()
         self.n_frames = n_frames
         self.skeleton = CFCA(reduction=reduction, n_frames=self.n_frames, layers = layers, width=width)
         branch = [DISA(layers=layers, width=width) for _ in range(self.n_frames)]
