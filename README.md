@@ -78,7 +78,7 @@ If you find this work helpful, please cite our paper:
 ```
 @article{jiang2023meflut,
   title={MEFLUT: Unsupervised 1D Lookup Tables for Multi-exposure Image Fusion},
-  author={Jiang, Ting and Wang, Chuan  and Li, Xinpeng and Li, Ru and Fan, Haoqiang and Liu, Shuaicheng},
+  author={Jiang, Ting and Wang, Chuan and Li, Xinpeng and Li, Ru and Fan, Haoqiang and Liu, Shuaicheng},
   journal={arXiv preprint arXiv:2309.11847},
   year={2023}
 }
