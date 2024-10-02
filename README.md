@@ -43,7 +43,7 @@ Test set
 |  |--...
 |--test.txt //  Test set index.
 ```
-I write a data_select.py code under the data_utils folder to handle the user can select 2, 3 or 4 frames to operate as needed. In the actual training, our experiments are also randomly selected, so there may be bias in the experimental results.
+I write a data_selection.py code under the data_utils folder to handle the user can select 2, 3 or 4 frames to operate as needed. In the actual training, our experiments are also randomly selected, so there may be bias in the experimental results.
 
 ## Usage
 ### Requirements
