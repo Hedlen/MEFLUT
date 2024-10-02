@@ -1,4 +1,4 @@
-# [ICCV 2023] MEFLUT: Unsupervised 1D Lookup Tables for Multi-exposure Image Fusion [Arxiv 2023](https://arxiv.org/abs/2309.11847) | [ICCV 2023](https://openaccess.thecvf.com/content/ICCV2023/html/Jiang_MEFLUT_Unsupervised_1D_Lookup_Tables_for_Multi-exposure_Image_Fusion_ICCV_2023_paper.html)
+# [ICCV 2023] MEFLUT: Unsupervised 1D Lookup Tables for Multi-exposure Image Fusion [Paper](https://arxiv.org/abs/2309.11847)
 
 <h4 align="center">Ting Jiang<sup>1,*</sup>, Chuan Wang<sup>1</sup>,  Xinpeng Li<sup>1</sup>,  Ru Li<sup>1</sup>,  Haoqiang Fan<sup>1</sup>,  Shuaicheng Liu<sup>2,1,†</sup></center>
 <h4 align="center"> 1. Megvii Research, 2. University of Electronic Science and Technology of China</center>
@@ -43,7 +43,7 @@ Test set
 |  |--...
 |--test.txt //  Test set index.
 ```
-The indices of the selected 2, 3, and 4 frames in the paper will be updated in the future.
+I write a data_select.py code under the data_utils folder to handle the user can select 2, 3 or 4 frames to operate as needed. In the actual training, our experiments are also randomly selected, so there may be bias in the experimental results.
 
 ## Usage
 ### Requirements
@@ -66,21 +66,26 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+### Training
+```
+1. cd MEFLUT
+2. python main.py --status 1dluts_train # execute in GPU
+```
+
 ### Testing
 ```
-1. cd codes
-2. python main.py # execute in GPU
+1. cd MEFLUT
+2. python main.py --status 1dluts_eval # execute in GPU
 ```
 ## Citation
 
 If you find this work helpful, please cite our paper:
 
 ```
-@inproceedings{jiang2023meflut,
+@article{jiang2023meflut,
   title={MEFLUT: Unsupervised 1D Lookup Tables for Multi-exposure Image Fusion},
   author={Jiang, Ting and Wang, Chuan and Li, Xinpeng and Li, Ru and Fan, Haoqiang and Liu, Shuaicheng},
-  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
-  pages={10542--10551},
+  journal={arXiv preprint arXiv:2309.11847},
   year={2023}
 }
 ``` 

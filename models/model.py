@@ -52,9 +52,6 @@ class Fusion(nn.Module):
         o_hr = torch.sum(w_hr * x_hr, dim=0, keepdim=True).clamp(0, 1)
         return o_hr, w_hr
 
-    def init_lr(self, path):
-        self.lr.load_state_dict(torch.load(path))
-
 class CFCA(nn.Module):
     def __init__(self, layers = 4, width = 64, reduction=8, n_frames = 3):
         super(CFCA, self).__init__()
@@ -132,7 +129,7 @@ class DISA(nn.Module):
         return x
 
 class MEFNetwork(nn.Module):
-    def __init__(self, n_frames=3, radius=2, eps=1, is_guided=True, reduction=8, layers=2, width=48):
+    def __init__(self, is_guided=True, n_frames=3, radius=2, eps=1, reduction=8, layers=2, width=48):
         super(MEFNetwork, self).__init__()
         self.n_frames = n_frames
         self.skeleton = CFCA(reduction=reduction, n_frames=self.n_frames, layers = layers, width=width)
@@ -156,6 +153,3 @@ class MEFNetwork(nn.Module):
         w_hr = (w_hr + EPS) / torch.sum((w_hr + EPS), dim=0)
         o_hr = torch.sum(w_hr * x_hr, dim=0, keepdim=True).clamp(0, 1)
         return o_hr, w_hr
-
-    def init_lr(self, path):
-        self.lr.load_state_dict(torch.load(path))
