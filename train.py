@@ -73,6 +73,11 @@ class Train(object):
         self.n_frames = config.n_frames
         self.start_epoch = 0
         self.max_epochs = config.max_epochs
+        self.initial_lr = config.lr
+        if self.initial_lr is None:
+            lr = 0.0005
+        else:
+            lr = self.initial_lr
         self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
         self.scheduler = lr_scheduler.StepLR(self.optimizer,
                                         last_epoch=self.start_epoch-1,
@@ -101,6 +106,15 @@ class Train(object):
         self.fused_img_path = config.fused_img_path
         self.epochs_per_eval = config.epochs_per_eval
         self.epochs_per_save = config.epochs_per_save
+
+        if config.resume:
+            if config.ckpt:
+                ckpt = os.path.join(self.ckpt_path, config.ckpt)
+                print("ckpt:", ckpt)
+            else:
+                ckpt = self._get_latest_checkpoint(path=self.ckpt_path)
+            self._load_checkpoint(ckpt=ckpt)
+
 
     
 
@@ -305,6 +319,32 @@ class Train(object):
             t[t < 0] = 0
             utils.save_image(t, "%s/%s.jpg" % (path, name))
     
+    @staticmethod
+    def _load_checkpoint(self, ckpt):
+        if os.path.isfile(ckpt):
+            print("[*] loading checkpoint '{}'".format(ckpt))
+            checkpoint = torch.load(ckpt)
+            self.start_epoch = checkpoint['epoch']+1
+            self.train_loss = checkpoint['train_loss']
+            self.test_results = checkpoint['test_results']
+            self.model.load_state_dict(checkpoint['state_dict'])
+            self.optimizer.load_state_dict(checkpoint['optimizer'])
+            if self.initial_lr is not None:
+                for param_group in self.optimizer.param_groups:
+                    param_group['initial_lr'] = self.initial_lr
+            print("[*] loaded checkpoint '{}' (epoch {})"
+                  .format(ckpt, checkpoint['epoch']))
+        else:
+            print("[!] no checkpoint found at '{}'".format(ckpt))
+
+    @staticmethod
+    def _get_latest_checkpoint(path):
+        ckpts = os.listdir(path)
+        ckpts = [ckpt for ckpt in ckpts if not os.path.isdir(os.path.join(path, ckpt)) and "res" not in ckpt]
+        all_times = sorted(ckpts, key=lambda x:int(x.split('-')[-1].rstrip(".pt")),reverse=True)
+        print(all_times)
+        return os.path.join(path, all_times[0])
+
     def _save_checkpoint(state, filename='checkpoint.pth.tar'):
         # if os.path.exists(filename):
         #     shutil.rmtree(filename)
