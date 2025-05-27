@@ -14,7 +14,7 @@ In this paper, we introduce a new approach for high-quality multi-exposure image
 ![pipeline](./assets/pipeline.png)
 
 ## Our Dataset
-The  dataset including training and testing dataset can be download from [Baidu Netdisk](Link: https://pan.baidu.com/s/1F3Re_2CWYibsqejN-pA2tw?pwd=2tih 提取码: 2tih ). The dataset is organized as follow:
+The  dataset including training and testing dataset can be download from [Baidu Netdisk](Link: https://pan.baidu.com/s/1F3Re_2CWYibsqejN-pA2tw?pwd=2tih 提取码: 2tih ) or [Huggingface](https://huggingface.co/datasets/peterJing/MEFLUT/tree/main). The dataset is organized as follow:
 
 ```
 Training set
