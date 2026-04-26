@@ -77,6 +77,14 @@ pip install -r requirements.txt
 1. cd MEFLUT
 2. python main.py --status 1dluts_eval # execute in GPU
 ```
+## ⚠️ Maintenance Notice
+
+This repository is **no longer actively maintained**. Please note the following:
+
+1. **Weights not provided**: Only the 1D LUTs (under the `luts/` folder) are retained in this repository. Model weights are **not included** — researchers will need to train the model from scratch using the provided training code and dataset.
+
+2. **Known dataset issue**: Some training dataset folders (e.g., folders 584 and 486) contain erroneous files named `._0.jpg`, which may cause training failures. If you encounter this issue, a community-maintained fork may help: [https://github.com/qulishen/MEFLUT](https://github.com/qulishen/MEFLUT). Thanks to [@qulishen](https://github.com/qulishen) for the contribution.
+
 ## Citation
 
 If you find this work helpful, please cite our paper:
