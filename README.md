@@ -77,11 +77,39 @@ pip install -r requirements.txt
 1. cd MEFLUT
 2. python main.py --status 1dluts_eval # execute in GPU
 ```
+## 🚀 Beyond MEF: LUT-Based AI for Edge Devices
+
+The 1D LUT paradigm introduced in this work is more than a fusion technique — it represents a principled approach to deploying AI on **chips and terminal devices** where quality, latency, and power consumption must be carefully balanced.
+
+**Why LUTs matter for on-device AI:**
+- A trained neural network can be distilled into compact LUTs, enabling **inference without running the full model** at deployment time
+- LUT lookup is an extremely lightweight operation, making it ideal for **ISP pipelines, mobile SoCs, and dedicated imaging chips**
+- This is a highly insightful form of **model compression**: the network's learned knowledge is baked into a table, achieving near-zero runtime cost while preserving quality
+- Our method has already been **deployed in production on terminal devices and chips**, demonstrating real-world viability at scale
+
+**Extensibility beyond 1D:**
+
+The 1D LUT idea naturally generalizes to higher dimensions:
+
+| LUT Type | Input | Typical Use Case |
+|----------|-------|-----------------|
+| 1D LUT | Single channel intensity | Tone mapping, exposure fusion (this work) |
+| 2D LUT | Two-channel pairs (e.g., Y+context) | Noise-aware enhancement, local tone control |
+| 3D LUT | RGB triplet | Color grading, white balance, style transfer |
+
+This family of LUT-based methods opens up a broad design space for **efficient, hardware-friendly AI image processing**, applicable to:
+- Computational photography pipelines
+- Real-time video enhancement on edge NPUs
+- Low-power wearable and IoT imaging devices
+- Any scenario requiring a favorable trade-off between AI quality and compute budget
+
+We hope this work inspires further exploration of LUT-based compression across diverse vision tasks.
+
 ## ⚠️ Maintenance Notice
 
 Please note the following:
 
-1. **Weights not provided**: Only the 1D LUTs (under the `luts/` folder) are retained in this repository. Model weights are **not included** — researchers will need to train the model from scratch using the provided training code and dataset.
+1. **Weights not provided**: Only the 1D LUTs (under the `luts/` folder) are retained in this repository. Model weights are **not included** — researchers can train the model from scratch using either the training code and the dataset introduced in our paper, or their own custom dataset.
 
 2. **Known dataset issue**: Some training dataset folders (e.g., folders 584 and 486) contain erroneous files named `._0.jpg`, which may cause training failures. If you encounter this issue, a community-maintained fork may help: [https://github.com/qulishen/MEFLUT](https://github.com/qulishen/MEFLUT). Thanks to [@qulishen](https://github.com/qulishen) for the contribution.
 
