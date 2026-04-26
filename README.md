@@ -79,7 +79,7 @@ pip install -r requirements.txt
 ```
 ## ⚠️ Maintenance Notice
 
-This repository is **no longer actively maintained**. Please note the following:
+Please note the following:
 
 1. **Weights not provided**: Only the 1D LUTs (under the `luts/` folder) are retained in this repository. Model weights are **not included** — researchers will need to train the model from scratch using the provided training code and dataset.
 
